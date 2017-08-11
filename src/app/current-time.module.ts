@@ -17,4 +17,4 @@ import { CurrentTimeComponent } from './current-time.component';
   providers: [],
   bootstrap: [CurrentTimeComponent]
 })
-export class AppModule { }
+export class CurrentTimeModule { }
