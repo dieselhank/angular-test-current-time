@@ -1,4 +1,4 @@
-import { Component, OnInit, DoCheck, ElementRef } from '@angular/core';
+import { Component, NgZone, OnInit, DoCheck, ElementRef } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
@@ -45,10 +45,12 @@ select {
   `]
 })
 export class CurrentTimeComponent implements OnInit {
-  constructor(private http: HttpClient, private elementRef:ElementRef) {
-	  let selected = this.elementRef.nativeElement.getAttribute('selected');
+  constructor(private http: HttpClient, private elementRef:ElementRef, private zone: NgZone) {
+ 	  let selected = this.elementRef.nativeElement.getAttribute('selected');
 	  let tzChanged = this.elementRef.nativeElement.getAttribute('time-zone-changed');
 	  let btnClicked = this.elementRef.nativeElement.getAttribute('button-clicked');
+	  let getCompRef = this.elementRef.nativeElement.getAttribute('get-comp-ref');
+	  
 	  if(selected !== null && selected !== '') {
 		  this.tz = selected;
 		  this.oldtz = selected;
@@ -60,6 +62,9 @@ export class CurrentTimeComponent implements OnInit {
 	  if(btnClicked !== null && btnClicked !== '') {
 		  this.buttonClicked = btnClicked;
 	  }
+	  if(getCompRef !== null && getCompRef !== '') {
+		this.getCompRef = getCompRef;
+	  }
   }
   
   tz: string = 'America/Phoenix';
@@ -70,6 +75,7 @@ export class CurrentTimeComponent implements OnInit {
   
   timeZoneChanged: any;
   buttonClicked: any;
+  getCompRef: any;
   
   tzlist = [];
   
@@ -94,7 +100,14 @@ export class CurrentTimeComponent implements OnInit {
 		if (typeof fn === "function") fn(this.tz);
 	  }
   }
+  changeTimeZone(tz) {
+	  this.zone.run(() => this.tz = tz);
+  }
   ngOnInit() {
+    if(this.getCompRef) {
+	  let fn2 = document[this.getCompRef];
+	  if (typeof fn2 === "function") fn2(this);
+	}
     this.http.get('https://script.google.com/macros/s/AKfycbyd5AcbAnWi2Yn0xhFRbyzS4qMq1VucMVgVvhul5XqS9HkAyJY/exec?tz=all')
       .subscribe(data => {
 		  this.tzlist = Object.keys(data);

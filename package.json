@@ -1,6 +1,8 @@
 {
   "name": "angular-test-current-time",
-  "version": "0.0.0",
+  "description": "Simple Angular test to demonstrate hosting angular in a plain web page.",
+  "author": "David Specht",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "current-time.bundle.js",
   "jsnext:main": "current-time.module.js",
@@ -13,9 +15,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "bundle": "webpack && copy index.html dist && copy .\\src\\favicon.ico dist && copy app*.js dist"
+    "bundle": "webpack && copy *.html dist && copy .\\src\\favicon.ico dist && copy app*.js dist && copy .\\src\\package.json dist && copy .\\src\\README.md dist"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^4.0.0",
     "@angular/common": "^4.0.0",

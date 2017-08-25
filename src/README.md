@@ -1,3 +1,17 @@
+﻿
+## Library angular-test-current-time
+An Angular project that demonstrates loading and interacting with an Angular app from plain html/javascript.
+
+## Usage
+The Angular app is in `current-time.bundle.js`. It includes the Angular libraries. There are polyfills packaged in a seperate file `polyfills.bundle.js`.
+
+
+```
+# Install Dependencies
+add this package to your package.json: https://www.npmjs.com/package/vue-test-current-time
+npm install
+
+# Example Page
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,7 +19,7 @@
   <title>AngularTestCurrentTime</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="/node_modules/favicon.ico">
 	<script>
 		document.getCompRef = function(compRef) {
 			document.compRef = compRef;
@@ -37,8 +51,15 @@
 </form>
 </div>
 <div>
-	<script src="polyfills.bundle.js"></script>
-	<script src="current-time.bundle.js"></script>
+	<script src="/node_modules/polyfills.bundle.js"></script>
+	<script src="/node_modules/current-time.bundle.js"></script>
 </div>
 </body>
 </html>
+```
+
+## Simple Example
+The included `index.html` file demostrate loading the current-time Angular app on a webpage. The app is able to call out to plain javascript functions and plain javascript is able to get a reference to the component and call internal methods to change the component state.
+
+## Multiple Angular Apps Example
+The included `multi-component.html` file demonstrates loading multiple Angular apps on one webpage.

@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <title>AngularTestCurrentTime</title>
-  <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -18,7 +17,7 @@
 
 			document.buttonClicked = function(tz, event) {
 				alert("Button clicked: Current time-zone: " + tz);
-			}
+			}			
 			document.getElementById('newtzbtn').addEventListener('click', function() {
 				let newtz = document.getElementById('newtz').value;
 				if(newtz !== '' && document.compRef) {
@@ -29,13 +28,25 @@
 	</script>
 </head>
 <body>
-	<div>
-		<current-time selected="Africa/Accra" time-zone-changed="timeZoneChanged" button-clicked="buttonClicked" get-comp-ref="getCompRef"></current-time>
-	</div>
-	<div>
-		<form>
-			<input type="text" id="newtz" value="Canada/Pacific"/><input id="newtzbtn" type="button" value="Set Time Zone"/>
-		</form>
-	</div>
+<div>
+  <current-time selected="Africa/Accra" time-zone-changed="timeZoneChanged" button-clicked="buttonClicked" get-comp-ref="getCompRef"></current-time>
+</div>
+<div>
+<form>
+<input type="text" id="newtz" value="Canada/Pacific"/><input id="newtzbtn" type="button" value="Set Time Zone"/>
+</form>
+</div>
+<div>
+<component-one></component-one>
+</div>
+<div>
+<component-two></component-two>
+</div>
+<div>
+	<script src="polyfills.bundle.js"></script>
+	<script src="current-time.bundle.js"></script>
+	<script src="appOne.js"></script>
+	<script src="appTwo.js"></script>
+</div>
 </body>
 </html>
