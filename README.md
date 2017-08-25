@@ -5,4 +5,4 @@ An Angular project
 `npm run bundle`
 
 ## Create npm package
-After bundling app from the dist folder run `npm publish`. Assumes you have setup npm user and registry.
+After bundling app from the dist folder run `npm publish`. Assumes you have setup npm user and registry.git s
