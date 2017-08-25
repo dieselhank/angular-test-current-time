@@ -19,7 +19,7 @@ npm install
   <title>AngularTestCurrentTime</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="/node_modules/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="node_modules/angular-test-current-time/favicon.ico">
 	<script>
 		document.getCompRef = function(compRef) {
 			document.compRef = compRef;
@@ -51,8 +51,8 @@ npm install
 </form>
 </div>
 <div>
-	<script src="/node_modules/polyfills.bundle.js"></script>
-	<script src="/node_modules/current-time.bundle.js"></script>
+	<script src="node_modules/angular-test-current-time/polyfills.bundle.js"></script>
+	<script src="node_modules/angular-test-current-time/current-time.bundle.js"></script>
 </div>
 </body>
 </html>
